@@ -9,3 +9,4 @@ actix-session = { version = "0.10.1", features = ["cookie-session"] }
 actix-identity = { version = "0.8.0" }
 actix-files = { version="0.6.6" }
 serde = { version = "1.0.210", features = ["derive"]}
+toml = { version = "0.8.19" }
