@@ -13,7 +13,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .wrap(SessionMiddleware::new(CookieSessionStore::default(), secret_key.clone()))
-            .service(fs::Files::new("/login", "../frontend/pages").index_file("base.html"))
+            .service(fs::Files::new("/login", "./frontend").index_file("pages/login.html"))
             .route("/auth", web::post().to(auth_user))
     })
     .bind(("127.0.0.1", 8080))?
