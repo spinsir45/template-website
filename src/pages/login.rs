@@ -18,10 +18,10 @@ pub async fn auth_user(form_data: web::Form<LoginForm>) -> HttpResponse {
     // Hash the password
     let mut hasher = DefaultHasher::new();
     form.password.hash(&mut hasher);
-    let _value = hasher.finish();
+    let hashed_password = hasher.finish();
 
     // Check if the user is an authentic user
-
+    
     
     // Return response
     HttpResponse::Ok().finish()
