@@ -10,3 +10,4 @@ actix-identity = { version = "0.8.0" }
 actix-files = { version="0.6.6" }
 serde = { version = "1.0.210", features = ["derive"]}
 toml = { version = "0.8.19" }
+tera ={ version = "1.20.0" }
