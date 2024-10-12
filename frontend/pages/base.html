@@ -16,13 +16,24 @@
 </head>
 <body class="bg-dark text-light">
     <!-- Top Navbar -->
-    <header class="d-flex bg-danger">
-        <h1>Header</h1>
+    <header class="d-flex bg-primary p-3">
+        <div class="d-flex justify-content-center align-items-center">
+            <h1>LOGO</h1>
+        </div>
+
+        <!-- Is removed on screens smaller than medium -->
+        <div class="flex-grow-1 text-center d-none d-md-block">
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <p class="fw-bold p-2">Radio Status:</p>
+                <p class="fw-bold p-2">IP Addr:</p>
+                <p class="fw-bold p-2">Netmask:</p>
+            </div>
+        </div>
     </header>
 
     <div class="d-flex w-100" style="height: 100vh;">
-        <nav class="p-2">
-            <div class="d-flex flex-column">
+        <nav class="p-2 border-end border-light d-none d-md-block">
+            <div class="d-flex flex-column ">
                 <button class="btn btn-primary m-2" type="button">Dashboard</button>
                 <button class="btn btn-primary m-2" type="button">Networking</button>
                 <button class="btn btn-primary m-2" type="button">Mesh</button>
