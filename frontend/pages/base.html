@@ -14,34 +14,87 @@
 
     {% endblock imports %}
 </head>
-<body class="bg-dark text-light">
+<body class="bg-dark text-light d-flex flex-column">
     <!-- Top Navbar -->
-    <header class="d-flex bg-primary p-3">
-        <div class="d-flex justify-content-center align-items-center">
-            <h1>LOGO</h1>
+    <header class="bg-primary p-3">
+        <!-- Is removed on screens smaller than medium -->
+         <div class="d-none d-md-block">
+            <div class="d-flex flex-row">
+                <div class="d-flex justify-content-center align-items-center">
+                    <h1>LOGO</h1>
+                </div>
+        
+                <div class="flex-grow-1 text-center">
+                    <div class="d-flex flex-row justify-content-center align-items-center">
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <p class="fw-bold p-2">Radio Status:</p>
+                            <p class="bg-danger p-2 rounded" id="radio-status"></p>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <p class="fw-bold p-2">IP Addr:</p>
+                            <p id="radio-ip-address">10.0.0.1</p>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center">
+                            <p class="fw-bold p-2">Netmask:</p>
+                            <p id="radio-netmask">255.255.255.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+        <!-- Is hidden until screen is smaller than medium -->
+        <div class="d-md-none">
+            <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#sideMenu" aria-controls="sideMenu">
+                <img class="bg-primary border-none" src="/login/images/menu-2.png" style="max-width: 25px; max-height: 25px;">
+            </button>
         </div>
 
-        <!-- Is removed on screens smaller than medium -->
-        <div class="flex-grow-1 text-center d-none d-md-block">
-            <div class="d-flex flex-row justify-content-center align-items-center">
-                <p class="fw-bold p-2">Radio Status:</p>
-                <p class="fw-bold p-2">IP Addr:</p>
-                <p class="fw-bold p-2">Netmask:</p>
+         <!-- Is hidden until screen is smaller than medium -->
+         <div class="d-md-none">
+            <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="sideMenuLabel">LOGO</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="d-flex flex-column">
+                        <a href="/"><button class="btn btn-primary m-2" type="button">Dashboard</button></a>
+                        <a href="/networking"><button class="btn btn-primary m-2" type="button">Networking</button></a>
+                        <a href="/mesh"><button class="btn btn-primary m-2" type="button">Mesh</button></a>
+                        <a href="/firmware"><button class="btn btn-primary m-2" type="button">Firmware</button></a>
+                        <a href="/settings"><button class="btn btn-primary m-2" type="button">Settings</button></a>
+                    </div>
+        
+                    <div class="text-center">
+                        <p id="radio-software-version" style="padding-top: 5px;">Version: 0.0.1</p>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="d-flex w-100" style="height: 100vh;">
-        <nav class="p-2 border-end border-light d-none d-md-block">
-            <div class="d-flex flex-column ">
-                <button class="btn btn-primary m-2" type="button">Dashboard</button>
-                <button class="btn btn-primary m-2" type="button">Networking</button>
-                <button class="btn btn-primary m-2" type="button">Mesh</button>
-                <button class="btn btn-primary m-2" type="button">Settings</button>
+    <div class="d-flex w-100 flex-grow-1">
+        <nav class="p-2 border-end border-light d-none d-md-block d-flex flex-column">
+            <!-- Is removed on screens smaller than medium -->
+            <div class="d-none d-md-block">
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-column">
+                        <a class="w-100" href="/"><button class="btn btn-primary m-2" type="button">Dashboard</button></a>
+                        <a class="w-100" href="/networking"><button class="btn btn-primary m-2" type="button">Networking</button></a>
+                        <a class="w-100" href="/mesh"><button class="btn btn-primary m-2" type="button">Mesh</button></a>
+                        <a class="w-100" href="/firmware"><button class="btn btn-primary m-2" type="button">Firmware</button></a>
+                        <a class="w-100" href="/settings"><button class="btn btn-primary m-2" type="button">Settings</button></a>
+                    </div>
+        
+                    <div class="text-center">
+                        <p id="radio-software-version" style="padding-top: 5px;">Version: 0.0.1</p>
+                    </div>
+                </div>
             </div>
         </nav>
     
-        <main class="p-2 d-flex justify-content-center align-items-center flex-grow-1">
+        <main class="p-2 d-flex justify-content-center align-items-center flex-grow-1 flex-shrink-1">
           {% block content %}
             <h1>Template Data</h1>
           {% endblock content %}
